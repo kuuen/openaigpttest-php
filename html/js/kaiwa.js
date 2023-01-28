@@ -7,18 +7,22 @@ let rireki = [];
 // 送信ボタン
 document.getElementById("btnSend").onclick = function() {
   let m = txtMassage.value;
-  let ri = "<div class='ichigyou honninres'>" + m + "</div>"
+  // let ri = "<div class='ichigyou honninres'>" + m + "</div>"
+  let ri = 'あなた：' + m;
   rireki.push(m);
   rirekiContent.innerHTML =  rirekiContent.innerHTML + ri;
   txtMassage.value = '';
   txtMassage.focus();
-  if (rireki.length >= 5) {
+
+  // 10件以前は省く
+  if (rireki.length >= 10) {
     rireki.splice(0, 1);
   }
 
   param = '';
   rireki.forEach(function(s){
-    param += s + '。';
+    b = s.replace('\n', '');
+    param += b + '。';
   });
 
   aiHantei(param, 5, 20);
@@ -42,12 +46,23 @@ function aiHantei(a, min, max) {
     
     let airesult = document.getElementById("ai-result");
     m = data['msg'];
-    rireki.push(m);
-    if (rireki.length >= 5) {
-      rireki.splice(0, 1);
+
+    if (m != '') {
+
+      rireki.push(m);
+      if (rireki.length >= 10) {
+        rireki.splice(0, 1);
+      }
+
+      // m = m.replace('\n', '');
+      m = m.replace(/\n/g, '');
+
+      // rirekiContent.innerHTML =  rirekiContent.innerHTML + "<div class='ichigyou aires'>" + m + "</div>";
+      rirekiContent.innerHTML =rirekiContent.innerHTML +  "\nAI：" + m + '\n';
+    } else {
+      // rirekiContent.innerHTML =  rirekiContent.innerHTML + "<div class='ichigyou aires'>" + m + "</div>";
+      rirekiContent.innerHTML =rirekiContent.innerHTML +  "\nAI：" + '返答がありませんでした' + '\n';
     }
-    
-    rirekiContent.innerHTML =  rirekiContent.innerHTML + "<div class='ichigyou aires'>" + m + "</div>";
 
   })
   // 検索失敗時には、その旨をダイアログ表示

@@ -67,7 +67,6 @@ body {
   /* align-items: left; */
   align-items: flex-end;
 
-
 }
 
 .sousineria {
@@ -92,3 +91,10 @@ body {
   color: rgb(253, 0, 143);
 }
 
+textarea {
+  background-color: rgb(30, 30, 30);
+  height: 90%;
+  width: 90%;
+  font-size: 25px;
+  color: #FFF;
+}
