@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="content-language" content="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+<link rel="stylesheet" href="css/tarot.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<title>AIタロット占い</title>
+
+<link rel="icon" href="img/uranai_tarot_card.ico">
+<link rel="apple-touch-icon" href="img/uranai_tarot_card.ico">
+
+</head>
+<body>
+<span id="debug" style="color: #fff7f7;"> </span>
+<div id="modalResult" class="modal">
+  <div class="modal-content" id="modalResultScroll">
+    <div id="resultContent" class="modal-body">
+      <h1>hello</h1>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>てすとん
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseResult" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalindex" class="modal">
+  <div class="modal-content" id="modalResultScroll">
+    <div id="resultContent" class="modal-body">
+      <h1>AIタロット</h1>
+      <div>ヘキサグラム法で占います</div>
+      <div>AIが結果を導きます。機械なので参考で程度に</div>
+      <div>シャッフル：開始</div>
+      <div>参照：カード説明</div>
+      <div>カット&配る：配る</div>
+      <div>リセット：最初から</div>
+      <div>結果：結果を見る</div>
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseIndex" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalSansyou1" class="modal">
+  <div class="modal-content"  style="overflow:auto;">
+    <div id="sansyouContent1" class="modal-body">
+      <table>
+        <tr style="width:100%; " >  
+          <td style="width: 50%; ">
+            <a href="#" id="btnMajorArcana" class="btn-square-min tategaki" style="left:0%;height: 70%;" >大アルカナ</a>
+          </td>
+          <td style="width: 50%;">
+            <a href="#" id="btnMinorArcana" class="btn-square-min tategaki" style="left:0%;height: 70%;" >小アルカナ</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseSansyou1" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalMajorArcana" class="modal" style="z-index: 1001;">
+  <div class="modal-content" id="modalMajorArcanaScroll" style="overflow:auto;">
+    <div id="MajorArcanaContent" class="modal-body">
+      <table>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnFool"  class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >０愚者</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMagican" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)"  >１魔術師</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnPriestess" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >２女教皇</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnEmpress" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >３女帝</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnEmperor" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >４皇帝</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnHierophant" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >５法皇</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnLovers" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >６恋人</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnChariot" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >７戦車</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnStrength" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >８力</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnHermit" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >９隠者</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnFortune" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >10運命の輪</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnJustice" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >11正義</a>
+            
+          </td>
+        </tr><tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnHangedMan" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >12吊るされた男</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnDeath" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >13死</a>
+            
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnTemperance" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >14節制</a>
+            
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnDevil" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >15悪魔</a>
+            
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnTower" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >16塔</a>
+            
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnStar" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >17星</a>
+            
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMoon" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >18月</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnSun" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >19太陽</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnJudgement" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >20審判</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnWorld" class="btn-square-min" style="left:0%;" onclick = "onBtnMajorArcanaSyuruiClick(this)" >31世界</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseMajorArcana" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalMinorArcana1" class="modal" style="z-index: 1001;">
+  <div class="modal-content"  style="overflow:auto;">
+    <div id="MinorArcanaContent" class="modal-body">
+      <table>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 230px;">
+            <a href="#" id="btnWands" class="btn-square-min" style="left:0%; height: 100%;" onclick = "onBtnMinorArcanaSyuruiClick(this);" >こん棒</a>
+          </td>
+          <td style="width: 50%; height:  230px;">
+            <a href="#" id="btnSwords" class="btn-square-min" style="left:0%; height: 100%;" onclick = "onBtnMinorArcanaSyuruiClick(this);">剣</a>
+          </td>
+        </tr>
+        <tr style="width:100%; " >  
+          <td style="width: 50%; height:  230px;">
+            <a href="#" id="btnPentacles" class="btn-square-min" style="left:0%; height: 100%;"  onclick = "onBtnMinorArcanaSyuruiClick(this);" >金貨</a>
+          </td>
+          <td style="width: 50%; height:  230px;">
+            <a href="#" id="btnCups" class="btn-square-min" style="left:0%; height: 100%;"  onclick = "onBtnMinorArcanaSyuruiClick(this);" >聖杯</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseMinorArcana1" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalMinorArcana2" class="modal" style="z-index: 1002;">
+  <div id="modalMinorArcana2Content" class="modal-content"  >
+    <div id="MajorArcanaContent" class="modal-body">
+      <table id="tblMajorArcana">
+        <tr style="width:100%;" >
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor1"  class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >１</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor2" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >２</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor3" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >３</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor4" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >４</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor5" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >５</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor6" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >６</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor7" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >７</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor8" class="btn-square-min" style="left:0%;"  onclick = "onBtnMinorArcanaNumClick(this);">８</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor9" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >９</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajor10" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >１０</a>
+          </td>
+        </tr>
+        <tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnMajorPage" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >ペイジ</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnKnight" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >ナイト</a>
+          </td>
+        </tr><tr style="width:100%;" >  
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnQueen" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >クィーン</a>
+          </td>
+          <td style="width: 50%; height: 100px;">
+            <a href="#" id="btnKing" class="btn-square-min" style="left:0%;" onclick = "onBtnMinorArcanaNumClick(this);" >キング</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseMinorArcana2" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<div id="modalTarot" class="modal" style="z-index: 1002;">
+  <div class="modal-content" id="modalTarotScroll">
+    <div id="tarotContent" class="modal-body">
+      <h1>hello</h1>
+      modalTarot<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>てすとん
+    </div>
+  </div>
+  <div class="modal-bottm">
+    <a href="#" id="btnCloseTarot" class="btn-square-min" style="left:0%;" >閉じる</a>
+  </div>
+</div>
+
+<a href="#" id="btn_shuffle" class="btn-square" style="left:0%;" >シャッフル</a>
+<a href="#" id="btn_sansyou" class="btn-square" style="left:50%;" >参照</a>
+
+<!-- <span class="circle1" id="cord1"></span> -->
+
+<!-- <script type="text/javascript" src="test.js"></script> -->
+<script type="text/javascript" src="js/tarot.js"></script>
+<script type="text/javascript" src="js/drawingShuffle.js"></script>
+
+</body>
+</html>

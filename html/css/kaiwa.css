@@ -1,0 +1,94 @@
+body {
+  font-size: 25px;
+  
+  /* background-color: #714285; */
+  background-color: rgb(30, 30, 30);
+}
+
+
+/* ボタン小さい */
+.btn-square-min {
+  /* display: inline-block; */
+  text-decoration: none;
+  /* background: #668ad8; */ /*ボタン色*/
+  background: rgb(80, 80, 80);
+  color: #FFF;
+  border-radius: 3px;
+  border-style: solid; 
+  border-width: 3px; /* つけるべきか */
+  line-height: 35px;
+  top:98%;
+  /* width:95%;  */
+  height: 90%;
+  display: inline-block; /* インライン要素にすることで横に回り込む */
+  vertical-align: middle; /* 上下中央に寄せる */ 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index : 1000;
+}
+/* 
+.btn-square-min:active { 
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+}
+*/
+
+.btn-square-min:active { 
+  background: rgb(12, 87, 201);
+}
+
+
+.txt_send{
+  width: 80%;
+  font-size: 25px;
+}
+
+
+.rireki {
+  position: absolute;
+  bottom: 0; 
+  margin-bottom: 70px;
+
+  /* height: 90%; */
+
+  /*
+  width: 100%;
+  height: 100%;
+  
+  text-align: left;
+
+  
+  align-items: flex-end; */
+
+  /* display: flex; */
+  flex-flow: wrap row;
+  /* align-items: left; */
+  align-items: flex-end;
+
+
+}
+
+.sousineria {
+  display:inline-flex;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+
+  position: absolute;
+  bottom: 0; 
+}
+
+.ichigyou {
+  text-align: left;
+}
+
+.honninres {
+  color: rgb(0, 200, 255);
+}
+
+.aires {
+  color: rgb(253, 0, 143);
+}
+

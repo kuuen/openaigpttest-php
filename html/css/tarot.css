@@ -1,0 +1,249 @@
+body {
+  font-size: 25px;
+  /* background-color: #714285; */
+  background-color: rgb(30, 30, 30);
+}
+
+table {
+  border:"1px solid";
+}
+
+th {
+  text-align:left;
+  background-color: rgb(60, 80, 141);
+}
+
+td {
+  text-align:left;
+}
+
+table, td, th {
+  border: 2px solid rgb(34, 34, 34);;
+  width:100%;
+} 
+
+figure img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* ボタンの装飾 */
+.btn-square li {
+	height: 100px;
+	background-color: orange;
+}
+
+
+.btn-square {
+  display: inline-block;
+  text-decoration: none;
+  /* background: #668ad8;  ボタン色 */
+  background: rgb(80, 80, 80);
+  color: #FFF;
+  border-radius: 3px;
+  border-style: solid; border-width: 10px;
+  line-height: 35px;
+  position: absolute;
+  top:78%; 
+  width:45%;
+  height:19%;
+  vertical-align: middle; /* 上下中央に寄せる */ 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+/* ボタン小さい */
+.btn-square-min {
+  display: inline-block;
+  text-decoration: none;
+  /* background: #668ad8; */ /*ボタン色*/
+  background: rgb(80, 80, 80);
+  color: #FFF;
+  border-radius: 3px;
+  border-style: solid; 
+  border-width: 3px; /* つけるべきか */
+  line-height: 35px;
+  top:98%;
+  width:95%; 
+  height: 90%;
+  display: inline-block; /* インライン要素にすることで横に回り込む */
+  vertical-align: middle; /* 上下中央に寄せる */ 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index : 1000;
+}
+.btn-square-min:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+/* 回転アニメーション */
+
+/* span.circle1{ */
+span.card { 
+  display:inline-block;
+  /* font-size: 30px; */
+
+  /* height:500px; */
+
+  padding:0px;
+  margin:0px; 
+  /* height:150px;
+  width: 75px; */
+
+  height:20%;
+
+  /* widthはJSで変更する height と　2：1　の関係にするため */  
+  width: 20%;
+    /* width: auto; */
+
+  box-sizing:border-box;   
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  object-position : right;
+}
+
+/*  .circle1{  */
+.card_ura {
+  /* position: absolute; */
+/*  border-radius:100%; */
+  /* box-sizing:border-box;  */
+/*  border:10px dotted gold; */
+/*  animation:5s linear infinite rotation; */
+  background-image:url("../img/card_ura.png");
+
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+/*  top: 0;
+  left: 0;*/
+}
+
+.card_omote {
+  /* position: absolute; */
+  /* box-sizing:border-box;  */
+  /* background-image:url("img/card_omote.png"); */
+  /* text-align: center;
+  padding-top : 25px;
+  padding-left : 5px;
+  padding-right : 5px; */
+  overflow-wrap:break-word;
+
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+
+  /* display: inline-block; */
+}
+
+@keyframes rotation{
+  0%{ transform:rotate(0);}
+  100%{ transform:rotate(360deg); }
+}
+
+/* モーダルウインドウ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  /* background-color: rgba(0,0,0,0.5); */
+  /* background-color: rgb(29, 42, 56); */
+  z-index : 1000;
+  
+}
+  
+.modal-content{
+  background-color: white;
+  top: 0%;
+  left:2%;
+  width: 76%;
+  
+  height : 73%;
+  overflow:auto;
+
+  position :absolute;
+
+  /* padding: 0.5em 1em; */
+  margin: 2%;
+  /* background: #a5ebfd; */
+
+  color:white;
+
+  padding-bottom: 10px;
+
+  /* background-image:url("img/modalHaikei.png"); */
+
+  /* background-color: #714285; */
+  background-color: rgb(29, 42, 56);
+
+  border-top: double  30px rgb(117, 163, 159);
+  border-left: double  30px rgb(117, 163, 159);
+  border-right: double  30px rgb(117, 163, 159);
+}
+
+.modal-body {
+  overflow-wrap:break-word;
+
+}
+
+.modal-bottm{
+  background-color: white;
+  width: 76%;
+  
+  top : 73%;
+  height: 13%;
+  position :absolute;
+  margin: 10%;
+  left:4%;
+  padding: 0em ;
+  margin: 0em 0em;
+
+  margin: 2em 0;
+  /* background: #714285;; */
+  background-color: rgb(34, 34, 34);
+  /*
+  border-left: double  30px #880015;
+  border-right: double  30px #880015;
+  border-bottom: double  30px #880015;
+  */
+  border-left: double  30px rgb(117, 163, 159);
+  border-right: double  30px rgb(117, 163, 159);
+  border-bottom: double  30px rgb(117, 163, 159);
+  
+}
+
+
+img.kekka-img {
+  height : auto;
+  width : 50%;
+}
+
+img.gyakuiti {
+  transform: scale(-1, -1);
+}
+
+
+td.kekka-img {
+  text-align:center;
+}
+
+
+.tategaki{
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
