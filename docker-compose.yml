@@ -35,5 +35,10 @@ services:
       - ./html:/var/www/html
     ports:
       - 80:80
+      - 443:443
     depends_on:
       - mysql
+    environment:
+      - TZ=Asia/Tokyo
+      - APACHE_DOCUMENT_ROOT=/var/www/html/
+      - APP_DOMAIN=localhost
