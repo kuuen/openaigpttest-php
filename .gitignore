@@ -1,3 +1,4 @@
 html/cgi-bin/conf.json
 php/ssl/cert.pem
 php/ssl/privkey.pem
+php/ssl/chain.pem
