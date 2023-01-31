@@ -16,4 +16,5 @@ a2enmod ssl
 a2ensite default-ssl  
 apache2ctl graceful  
 
-
+〇音声再生
+ホストOSにVOICEVOXをインストール。必要ない場合はJavaScript部分をコメントアウトする
