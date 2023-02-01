@@ -7,6 +7,8 @@ const audioeria = document.getElementById("audioeria");
 const player = document.getElementById("saisei");
 player.controls = false; // オーディオは普段は非表示
 
+const hihyouzi = document.getElementById("hihyouzi");
+
 // 
 
 let rireki = [];
@@ -43,6 +45,8 @@ document.getElementById("btnSend").onclick = function() {
     b = s.replace('\n', '');
     param += b + '。';
   });
+
+  hihyouzi.className = "syotityuu";
 
   // rtn = 'ずんずんずーん'
   aiHantei(param, 5, 20);
@@ -93,7 +97,7 @@ function aiHantei(a, min, max) {
 
     // 切り出し位置
     index = 1;
-    max = 20;
+    max = 100;
   
     // 音声ファイル
     files = [];
@@ -154,6 +158,8 @@ function onsei(text) {
   .done(function(data) {
     // console.log(data['res'])
     
+    hihyouzi.className = "hihyouzi";
+
     // ファイル指定
     d = data['fileName'];
 
